@@ -1,0 +1,17 @@
+.component.red{
+  padding: 20px;
+  color: red;
+  border: 5px solid red;
+}
+
+.component.blue{
+  padding: 20px;
+  color: blue;
+  border: 5px solid blue;
+}
+
+.component.green{
+  padding: 20px;
+  color: green;
+  border: 5px solid green;
+}

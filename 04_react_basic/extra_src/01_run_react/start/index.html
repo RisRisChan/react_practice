@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/libs/react.development.js"></script>
+    <script src="/libs/react-dom.development.js"></script>
+    <!-- JSXをjavascriptのオブジェクトに変換するときにbabelを使用 -->
+    <script src="/libs/babel-standalone.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <!-- type="text/babel"を記入しないと、root.render()にhtmlタグを記載できない -->
+    <script type="text/babel">
+        const appEl = document.querySelector('#app');
+        const root = ReactDOM.createRoot(appEl);
+        //root.render(<h1>こんにちは</h1>) //h1タグはhtmlではなくJSXの構文
+
+        //（関数）コンポーネント
+        //※関数名の先頭は必ず大文字
+        //babelでJSXからコンポーネントの関数を実行するときに目印としているのが、先頭が大文字であることであるため（先頭が小文字だとhtmlのタグと認識されてしまうため関数の実行対象にはならない）
+        function Exsample1() {
+            return <h1>Hello</h1>;
+        }
+
+        //アロー関数
+        const Exsample2 = () => <h1>Good Night!</h1>;
+
+        //※1返り値が複数行の場合はreturnの値を()で囲む       
+        const Exsample3 = () => {
+            return (
+                <div>
+                    <h1>Good Morning!</h1>
+                </div>
+            );
+        }
+
+        const Exsample4 = () => (
+                <div>
+                    <h1>Good!</h1>
+                </div>
+            );
+
+        root.render(<Exsample4 />);
+
+        //※1
+        const a = () => {
+            return
+            "戻り値"
+        }
+        console.log(a());
+        //上記の書き方だと return ; となるため、a()を呼ぶとundefinedとなる（【23】の7:48~）
+
+        
+    </script>
+</body>
+</html>
